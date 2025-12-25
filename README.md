@@ -1,6 +1,17 @@
 # Abythral-AFCE
 Abythral AFCE: Gemini 3-powered engine mapping market constraints via 'non-signal' physics. Get elite strategy via sealed cryptographic proofs and visual manifolds. Secure your sovereign edge.
 
+## ⚠️ Note on Runtime Quotas
+
+This application was fully developed and tested in Google Gemini AI Studio.
+Due to limited API quota availability,
+live execution may be temporarily unavailable.
+
+All system instructions, prompt logic, schemas, and example outputs are
+fully documented in this repository. A demo video is provided to
+demonstrate runtime behavior.
+
+
 ABYTHRAL AFCE
 Advanced Financial Cognition Engine
 "Legitimate intelligence does not seek the signal within the noise; it resolves the constraints that make the signal inevitable." — Dennis Norman Brown, Architect
