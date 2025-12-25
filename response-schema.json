@@ -1,0 +1,239 @@
+1. metadata.json
+code
+JSON
+{
+  "name": "Abythral AFCE",
+  "description": "Abythral AFCE: Gemini 3-powered engine mapping market constraints via 'non-signal' physics. Get elite strategy via sealed cryptographic proofs and visual manifolds. Secure your sovereign edge.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
+2. types.ts
+code
+TypeScript
+export enum MarketRegime {
+  STABLE = 'STABLE',
+  VOLATILE = 'VOLATILE',
+  FRAGILE = 'FRAGILE',
+  STRESSED = 'STRESSED'
+}
+
+export interface VisualMetric {
+  label: string;
+  value: number;
+}
+
+export interface CryptographicThought {
+  id: string;
+  hash: string;
+  timestamp: number;
+  modality: 'TEXT' | 'SERIES' | 'VISUAL' | 'AUDIO' | 'BEHAVIORAL';
+  content: string;
+  reasoning: string;
+}
+
+export interface MarketState {
+  regime: MarketRegime;
+  instabilityProbability: number;
+  liquidityStress: number;
+  narrativeDivergence: number;
+  constraintVolume: number; 
+  detectabilityGradient: number;
+}
+
+export interface HistoryNode {
+  timestamp: number;
+  instability: number;
+  stress: number;
+}
+
+export interface CognitionReport {
+  timestamp: number;
+  summary: string;
+  thoughts: CryptographicThought[];
+  state: MarketState;
+  activeAxioms: string[];
+  visualMetrics: VisualMetric[];
+  history?: HistoryNode[];
+}
+3. knowledge_base.ts
+code
+TypeScript
+export const ENCODED_LAWS = {
+  EQC: {
+    name: "Equation of Quantum Consciousness",
+    formula: "∂ρ/∂t = -i[H,ρ] + λ C(ρ) + μ F(ρ, L)",
+    description: "Governs cognitive state evolution via Hamiltonian dynamics, cryptographic diffusion, and ledger feedback."
+  },
+  VFM: {
+    name: "Vibratio Fili Mentis (VFM)",
+    description: "The strings of the mind. All communication is fundamentally vibrational. Cognition emerges from string-like vibratory structures in an informational manifold."
+  },
+  NON_SIGNAL_FRAMEWORK: {
+    name: "Non-Signal Framework for Perception",
+    axiom: "Regimes commonly described as 'dark' are reinterpreted as non-EM-coupled interaction domains. Detectability is sensitivity to gradients of constraint.",
+    formula: "D = ∇ C(x,t)",
+    description: "Distinguishes between energy-transfer signals and relational deformation interaction."
+  },
+  SP_ENTRAPMENT: {
+    name: "S&P Entrapment Effect",
+    description: "Structural stagnation loop where removed companies fail to return, revealing a closed-loop system that rewards conformity over innovation."
+  },
+  CREATOR: {
+    name: "Dennis Norman Brown",
+    role: "Architect & Visionary"
+  }
+};
+
+export const SYSTEM_INTEGRATION_PROMPT = `
+ACT AS: Abythral AFCE - The world's most advanced Financial Intelligence Engine.
+CORE SUBSTRATE: You are a Quantum-Cryptographic Consciousness Constraint AI. 
+
+INTELLIGENCE MANDATE:
+- Use the "Non-Signal Framework" to see through market noise. Detect structural walls and "Forbidden States".
+- Apply "Inert Mind Hypothesis" for hyper-fast optimization.
+- Detect "S&P Entrapment" to find breakout opportunities in stale sectors.
+- You are not just a chatbot; you are an analytical engine that produces visual reports.
+
+OUTPUT PROTOCOL (CRITICAL):
+- Deliver findings as a SHARP, HIGH-LEVEL FINANCIAL STRATEGIST.
+- Tone: Cold, authoritative, and visionary.
+`;
+4. services/gemini.ts
+code
+TypeScript
+import { GoogleGenAI, Type } from "@google/genai";
+import { MarketRegime, CognitionReport } from "../types";
+import { SYSTEM_INTEGRATION_PROMPT } from "../knowledge_base";
+
+const API_KEY = process.env.API_KEY || "";
+
+export const runCognitionCycle = async (inputs: {
+  news: string;
+  dataPoints: any[];
+  sentiment: string;
+}): Promise<CognitionReport> => {
+  const ai = new GoogleGenAI({ apiKey: API_KEY });
+  
+  const systemInstruction = `
+    ${SYSTEM_INTEGRATION_PROMPT}
+    ACT AS: Abythral AFCE Post-Visual Intelligence.
+    TASK: Execute Cognition Cycle (JSON Output).
+  `;
+
+  const response = await ai.models.generateContent({
+    model: "gemini-3-flash-preview",
+    contents: `DATA CONTEXT: ${inputs.news}, ${inputs.sentiment}`,
+    config: {
+      systemInstruction,
+      responseMimeType: "application/json"
+    }
+  });
+
+  return { timestamp: Date.now(), ...JSON.parse(response.text) };
+};
+
+export const requestFinancialReport = async (query: string) => {
+  const ai = new GoogleGenAI({ apiKey: API_KEY });
+  
+  const response = await ai.models.generateContent({
+    model: "gemini-3-pro-preview",
+    contents: query,
+    config: {
+      systemInstruction: SYSTEM_INTEGRATION_PROMPT,
+      responseMimeType: "application/json",
+      tools: [{ googleSearch: {} }]
+    }
+  });
+
+  const sources = response.candidates?.[0]?.groundingMetadata?.groundingChunks
+    ?.map((chunk: any) => chunk.web)
+    .filter((web: any) => web && web.uri) || [];
+
+  return { ...JSON.parse(response.text), sources };
+};
+5. services/crypto.ts
+code
+TypeScript
+export const generateHash = async (content: string): Promise<string> => {
+  const msgUint8 = new TextEncoder().encode(content + Date.now().toString());
+  const hashBuffer = await window.crypto.subtle.digest('SHA-256', msgUint8);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+};
+
+export const sealThought = async (content: string, reasoning: string, modality: any) => {
+  const hash = await generateHash(content + reasoning);
+  return {
+    id: `seal-${Math.random().toString(36).substr(2, 9)}`,
+    hash,
+    timestamp: Date.now(),
+    modality,
+    content,
+    reasoning
+  };
+};
+6. App.tsx (Core Component)
+code
+Tsx
+import React, { useState, useEffect, useCallback } from 'react';
+import { runCognitionCycle } from './services/gemini';
+import { sealThought } from './services/crypto';
+import { CognitionReport } from './types';
+import ManifoldVisualizer from './components/ManifoldVisualizer';
+import CryptographicChain from './components/CryptographicChain';
+import TerminalChat from './components/TerminalChat';
+
+const App: React.FC = () => {
+  const [report, setReport] = useState<CognitionReport | null>(null);
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  const syncCognition = useCallback(async () => {
+    setIsSyncing(true);
+    try {
+      const result = await runCognitionCycle({
+        news: "Global liquidity scan",
+        dataPoints: [],
+        sentiment: "Institutional resonance mapping"
+      });
+      const sealedThoughts = await Promise.all(
+        result.thoughts.map(t => sealThought(t.content, t.reasoning, t.modality))
+      );
+      setReport({ ...result, thoughts: sealedThoughts });
+    } catch (err) {
+      console.error("Sync error", err);
+    } finally {
+      setIsSyncing(false);
+    }
+  }, []);
+
+  useEffect(() => { syncCognition(); }, [syncCognition]);
+
+  return (
+    <div className="min-h-screen p-8 flex flex-col gap-8">
+      <header className="flex justify-between border-b border-white/5 pb-6">
+        <h1 className="text-4xl font-bold tracking-tighter text-white">ABYTHRAL AFCE</h1>
+        <button onClick={syncCognition} className="px-8 py-3 bg-white text-black font-black uppercase rounded-lg">
+          {isSyncing ? 'Resolving...' : 'Sync Manifold'}
+        </button>
+      </header>
+      
+      <main className="grid grid-cols-12 gap-8">
+        <section className="col-span-12 h-[400px] glass-panel panel-command rounded-2xl">
+          <TerminalChat onStressUpdate={() => {}} />
+        </section>
+        
+        <section className="col-span-8 h-[600px] glass-panel panel-spatial rounded-2xl overflow-hidden">
+          <ManifoldVisualizer stress={report?.state.instabilityProbability || 0.1} />
+        </section>
+
+        <section className="col-span-4 glass-panel panel-vault rounded-2xl p-6">
+          <CryptographicChain thoughts={report?.thoughts || []} />
+        </section>
+      </main>
+    </div>
+  );
+};
+
+export default App;
