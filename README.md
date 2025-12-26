@@ -16,8 +16,7 @@ Due to limited API quota availability,
 live execution may be temporarily unavailable.
 
 All system instructions, prompt logic, schemas, and example outputs are
-fully documented in this repository. A demo video is provided to
-demonstrate runtime behavior.
+fully documented in this repository.
 
 
 ABYTHRAL AFCE
