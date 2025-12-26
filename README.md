@@ -19,7 +19,7 @@ All system instructions, prompt logic, schemas, and example outputs are
 fully documented in this repository.
 
 
-ABYTHRAL AFCE – Advanced Financial Cognition Engine**
+ABYTHRAL AFCE – Advanced Financial Cognition Engine
 
 *"Legitimate intelligence does not seek the signal within the noise; it resolves the constraints that make the signal inevitable."*
 — Dennis Norman Brown, Architect
