@@ -1,6 +1,8 @@
  Abythral-AFCE
 Abythral AFCE: Gemini 3-powered engine mapping market constraints via 'non-signal' physics. Get elite strategy via sealed cryptographic proofs and visual manifolds. Secure your sovereign edge.
 
+Video: https://youtu.be/o9bkX-CmVU4?si=sl2oAGJiep7ljrRG
+
 ## Intellectual Property Notice
 
 This project is a research prototype developed for hackathon evaluation.
