@@ -1,3 +1,3 @@
-DEMO Video:Working prototype App of Abythral AFCE : The AI That Sees What Data Can’t
+DEMO Video:Working prototype App of Abythral AFCE: Sovereign-Class Financial Cognition Engine for Liquidity-Driven Markets
 
 Video: https://youtu.be/LRC5_z0w0Ng?si=ez2zFXxpcDnXnjhU
