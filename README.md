@@ -19,7 +19,7 @@ Unlike trading systems, Abythral AFCE is not designed to optimize returns. It is
 In short:
 Abythral AFCE transforms macro-financial uncertainty into a navigable risk topology for institutions responsible for systemic stability.
 
-Video: https://youtu.be/ZmUPzNMXuzo?si=mIZvr0nrpjf8RIcb
+Video: https://youtu.be/ZmUPzNMXuzo?si=6XULYhlIkLG5S62_
 
 ## Intellectual Property Notice
 
