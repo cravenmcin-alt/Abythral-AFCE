@@ -1,6 +1,24 @@
  Abythral-AFCE
 Abythral AFCE: Gemini 3-powered engine mapping market constraints via 'non-signal' physics. Get elite strategy via sealed cryptographic proofs and visual manifolds. Secure your sovereign edge.
 
+What It Does
+
+Abythral AFCE is a sovereign-grade financial cognition engine designed for central banks, treasuries, and systemic risk authorities.
+
+It analyzes financial systems without relying on traditional price signals or predictive models. Instead, it models markets as constraint fields—mapping where liquidity, leverage, policy pressure, and structural fragility accumulate *before* instability manifests.
+
+For a sovereign risk operator, Abythral AFCE:
+
+* Identifies structural stress zones in FX, rates, and liquidity systems that are invisible to signal-based models
+* Simulates policy and macro-financial scenarios (rate changes, liquidity shocks, capital flow reversals) to observe how constraints propagate across the system
+* Visualizes systemic risk as a manifold, allowing analysts to see where the financial system approaches instability thresholds
+* Produces cryptographically sealed reasoning trails, ensuring that strategic assessments are auditable, tamper-evident, and institutionally defensible
+
+Unlike trading systems, Abythral AFCE is not designed to optimize returns. It is built to support sovereign decision-making—helping central banks and treasuries understand where risk accumulates, when stability degrades, and which policy actions may trigger nonlinear outcomes.
+
+In short:
+Abythral AFCE transforms macro-financial uncertainty into a navigable risk topology for institutions responsible for systemic stability.
+
 Video: https://youtu.be/ZmUPzNMXuzo?si=mIZvr0nrpjf8RIcb
 
 ## Intellectual Property Notice
